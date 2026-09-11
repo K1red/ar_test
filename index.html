@@ -1,0 +1,116 @@
+#index.html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Carro em Realidade Aumentada</title>
+
+    <script
+        type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 24px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+        }
+
+        p {
+            margin: 0;
+            color: #aaa;
+        }
+
+        model-viewer {
+            width: 100%;
+            max-width: 900px;
+            height: 70vh;
+            background: #222;
+        }
+
+        #ar-button {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+
+            background: white;
+            color: black;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Veja o carro em tamanho real</h1>
+        <p>Toque no botão e coloque o carro no seu ambiente.</p>
+    </header>
+
+    <model-viewer
+        src="./carro.glb"
+
+        alt="Carro em 3D"
+
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+
+        camera-controls
+
+        shadow-intensity="1"
+
+        exposure="1"
+
+        environment-image="neutral"
+
+        scale="1 1 1"
+    >
+
+        <button
+            id="ar-button"
+            slot="ar-button"
+        >
+            📱 Ver em realidade aumentada
+        </button>
+
+    </model-viewer>
+
+</body>
+</html>
